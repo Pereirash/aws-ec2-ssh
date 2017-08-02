@@ -45,8 +45,8 @@ fi
 : ${USERADD_ARGS:="--create-home --shell /bin/bash"}
 
 # Initizalize INSTANCE and REGION variables
-INSTANCE_ID=$(curl -s http://instance-data//latest/meta-data/instance-id)
-REGION=$(curl -s http://instance-data//latest/dynamic/instance-identity/document | jq -r .region)
+INSTANCE_ID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
+REGION=$(curl -s http://169.254.169.254/latest/dynamic/instance-identity/document | jq -r .region)
 
 
 function log() {
